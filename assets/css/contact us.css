@@ -1,0 +1,113 @@
+body { font: 16px/1.4 sans-serif; }
+
+
+input,
+textarea {
+  font: inherit;
+}
+
+.input-group {
+  display: table;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+.input-group > * {
+  display: table-cell;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+.input-group-icon {
+  background-color: #eee;
+  color: #777;
+  padding: 0 5px;
+}
+
+.input-group-area {
+  width: 100%;
+}
+
+.input-group input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+.van::before{
+  content:url(/assets/img/download\ \(1\).png)
+}
+.can::before{
+  content: url(/assets/img/icons8-telegram-64.png);
+}
+.boot{
+  border-radius: 0.2;
+}
+.boot:hover{
+  text-rendering: 0.1;
+  background-color: green;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.product a {
+          background-color: blue;
+          color: white;
+          text-decoration: none;
+          padding: 10px 20px;
+          display: block;
+          text-align: center;
+      }
+
+      .product a:hover {
+          background-color: rgb(128, 250, 46);
+      }
+
+      .nav a:hover {
+          background-color: rgb(46, 182, 250);
+      }
+    .margin-bottom-1 {
+  margin-bottom: 1rem;
+          }
+    .text-bold {
+   font-weight: bold;
+   }
+
+       h2, .heading-2 {
+    font-size: 2.4rem;
+   line-height: 2.4;
+    }
+   
+.width-full {
+  width: 200px;
+}
+.rounded-medium {
+  border-radius: 0.75rem;
+}
+
+.display-block {
+  display: inline;
+}
+.car{
+          display:flex;
+          flex-wrap: nowrap;
+          justify-content: start;
+          align-content: center
+}
+
+.pro{
+         margin-left: 24px;
+}
+.h5{
+margin-left: 20px;
+}
+
+@media screen and (min-width: 1000px) {
+.desktop-grid-template-columns-4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+}
+.text-primary {
+  color: #464749!important;
+  text-decoration: none;
+}
