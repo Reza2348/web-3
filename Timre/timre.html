@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/timerStyle.css" />
+    <link href="https://fonts.cdnfonts.com/css/consola-mono" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="timeContainer">
+      <span id="h"></span> : <span id="m"></span> : <span id="s"></span> :
+      <span id="ms"></span>
+    </div>
+
+    <script>
+      let h = 0,
+        m = 0,
+        s = 0,
+        ms = 0;
+      function updateCh() {
+        document.getElementById("h").innerText = h < 10 ? `0${h}` : h;
+        document.getElementById("m").innerText = m < 10 ? `0${m}` : m;
+        document.getElementById("s").innerText = s < 10 ? `0${s}` : s;
+        document.getElementById("ms").innerText = ms < 10 ? `0${ms}` : ms;
+      }
+      updateCh();
+      function startCh() {
+        let chInterval = setInterval(countCh, 1);
+      }
+      function stopCh() {}
+      function countCh() {
+        ms++;
+        if (ms > 1000) {
+          ms = 0;
+          s++;
+        }
+        if (s > 60) {
+          m++;
+          s = 0;
+        }
+        updateCh();
+      }
+    </script>
+  </body>
+</html>
