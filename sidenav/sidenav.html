@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #sidenav {
+        position: fixed;
+        border: 1px solid lightblue;
+        background-color: lightgrey;
+        right: -200px;
+        top: 0;
+        height: 100%;
+        width: 200px;
+        transition: 1s;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        margin: 34px;
+      }
+      a:hover {
+        background-color: darkcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sidenav">
+      <svg
+        onclick="hideSidenav()"
+        xmlns="http://www.w3.org/2000/svg"
+        class="ionicon"
+        style="width: 2.25rem; display: inline-block; cursor: pointer"
+        viewBox="0 0 512 512"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="32"
+          d="M368 368L144 144M368 144L144 368"
+        />
+      </svg>
+      <a href="#">خانه</a>
+      <a href="#">تماس با ما</a>
+      <a href="#">محصولات</a>
+    </div>
+
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="ionicon"
+        viewBox="0 0 512 512"
+        onclick="showSidenav()"
+        style="width: 2.25rem; display: inline-block; cursor: pointer"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-miterlimit="10"
+          stroke-width="32"
+          d="M80 160h352M80 256h352M80 352h352"
+        />
+      </svg>
+    </div>
+    <script>
+      let showSidenav = function () {
+        document.getElementById("sidenav").style.right = "0px";
+      };
+      let hideSidenav = function () {
+        document.getElementById("sidenav").style.right = "-200px";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+.timerBtn{
+    width: 80px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 12px;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+    font-family:monospace;
+    margin-top: 13px;
+    margin-left: 15px;
+}
+#timeContainer{
+    font-size: 75px;
+    color:#40c437;
+    font-family: monospace;
+}
+#timeContainer{
+ text-align: center;
+ border: 3px solid;
+ border-radius: 25px;
+ background-color: #222222;
+}
