@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .pag {
+        border: 1px solid rgba(0, 0, 0, 0.532);
+        background-color: white;
+        color: black;
+        padding: 15px;
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p id="p1" class="pag">
+        What is PoE and why is it important in networking?
+      </p>
+      <p id="p2" class="pag">
+        PoE or Power over Ethernet is a new technology that allows the network
+        cable to transmit electrical energy in addition to data transmission.
+        For example, consider a CCTV camera that we plan to install in the
+        exterior of the building Another advantage of structured cabling is its
+        use for power transmission using PoE technology, which stands for
+        Power-over-Ethernet. PoE is suitable for devices such as wireless
+        repeaters or network surveillance cameras; Because these devices are
+        usually installed on the high points of the walls or ceiling and far
+        from the electrical outlet. The use of PoE in these devices makes them
+        need only one Ethernet cable to transmit voice, data and power..
+      </p>
+    </div>
+    <div>
+      <p id="p3" class="pag">What is a network and why is it important?</p>
+      <p id="p4" class="pag">
+        What is the use of the network? What is a network? In words, it is a
+        group of people or objects that are able to share information in a
+        meaningful way with each other. In the concepts of information
+        technology, "computer networks" or "data network" is called "network"
+        for short, which means that computers are tools and objects that share
+        information in an understandable way. At a higher and conceptual level,
+        data networks include nodes that computers and digital devices can
+        transfer messages between nodes through links and physical
+        communications (wired and wireless).
+      </p>
+    </div>
+    <script src="/assats/js/jquery-3.7.1.min.js"></script>
+    <script src="/assats/js/jquery.color-2.1.2.min.js"></script>
+    <script>
+      $(function () {
+        $("#p1").click(function () {
+          $("#p2").slideToggle(1000);
+        });
+        $("#p3").click(function () {
+          $("#p4").slideToggle(1000);
+        });
+      });
+    </script>
+  </body>
+</html>

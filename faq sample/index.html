@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 4px 3px;
+        padding: 5px 5px;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+      .item {
+        border: 1px solid darkcyan;
+      }
+      button {
+        color: white;
+        background-color: tomato;
+      }
+      Swal {
+        background-color: white;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="min" onkeyup="updateBox()" />
+    <input type="text" id="max" onkeyup="updateBox()" />
+    <div id="box"></div>
+    <ul id="cart"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      let cart = [];
+      let products = [
+        { id: 125, title: "product1", color: "red", price: 25000 },
+        { id: 241, title: "product2", color: "blue", price: 75000 },
+        { id: 112, title: "product3", color: "green", price: 10000 },
+        { id: 98, title: "product4", color: "red", price: 120000 },
+      ];
+
+      function fillBox(filterProducts) {
+        let parent = document.getElementById("box");
+        parent.innerHTML = "";
+        for (let i = 0; i < filterProducts.length; i++) {
+          parent.innerHTML += ` <div class="item">
+            <span>${filterProducts[i].id}</span>
+         <h2>${filterProducts[i].title}</h2>
+        <span>${filterProducts[i].color}</span>
+       <br>
+      <span>${filterProducts[i].price}</span>
+      <br>
+      <button onclick="addToCard(${filterProducts[i].id})">add</button>
+      <span data-count-id="${filterProducts[i].id}">0</span>
+      <button onclick="minusFromCart(${filterProducts[i].id})">minus</button>
+       </div>`;
+        }
+      }
+
+      fillBox(products);
+
+      function updateBox() {
+        let minp = Number(document.getElementById("min").value);
+        let maxp = Number(document.getElementById("max").value);
+        console.log(minp);
+        console.log(maxp);
+        let pf = products.filter(function (item) {
+          if (minp == 0 && maxp == 0) return true;
+          else if (minp == 0 && maxp != 0) return item.price < maxp;
+          else if (maxp == 0 && minp != 0) return item.price > minp;
+          else return item.price < maxp && item.price > minp;
+        });
+
+        fillBox(pf);
+      }
+
+      function addToCard(id) {
+        let productIndex = products.findIndex(function (item) {
+          return item.id == id;
+        });
+
+        let cartIndex = cart.findIndex(function (item) {
+          return item.products_id == id;
+        });
+        if (cartIndex == -1) {
+          cart.push({
+            count: 1,
+            product_title: products[productIndex].title,
+            product_id: products[productIndex].id,
+            product_price: products[productIndex].price,
+          });
+          document.querySelector(`[data-count-id="${id}"]`).innerHTML = "1";
+        } else {
+          cart[cartIndex].count += 1;
+          document.querySelector(`[data-count-id="${id}"]`).innerHTML =
+            cart[cartIndex].count;
+        }
+        updateCart();
+      }
+
+      function minusFromCart() {
+        console.log("hi");
+        let cartIndex = cart.findIndex(function (item) {
+          return item.product_id == id;
+        });
+        if (cartIndex == -1) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "محصول مورد نظر موجود نیست",
+            footer: '<a href="#">Why do I have this issue?</a>',
+          });
+        } else {
+          if (cart[cartIndex].count > 1) {
+            cart[cartIndex].count -= 1;
+            document.querySelector(`[data-count-id="${id}"]`).innerHTML =
+              cart[cartIndex].count;
+          } else if (cart[cartIndex].count == 1) {
+            cart.splice(cartIndex, 1);
+            document.querySelector(`[data-count-id="${id}"]`).innerHTML = "0";
+          }
+        }
+        updateCart();
+      }
+
+      function updateCart() {
+        document.getElementById("cart").innerHTML = "";
+        let totalPrice = 0;
+        cart.forEach((item) => {
+          document.getElementById("cart").innerHTML += `<li>${
+            item.product_title
+          } -- ${item.count}--${item.product_price} -- ${
+            item.product_price * item.count
+          } </li>`;
+          totalPrice += item.product_price * item.count;
+        });
+        document.getElementById(
+          "cart"
+        ).innerHTML += `<li>total price : ${totalPrice}</li>`;
+      }
+    </script>
+  </body>
+</html>
